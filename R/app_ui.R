@@ -38,6 +38,10 @@ app_ui <- function(request) {
                             numericInput("pulse_input",
                                          label = "Pulse",
                                          value = 70),
+                            checkboxGroupInput("senses_input",
+                                               label = "Senses",
+                                               choices = c("Smell"="S","Taste"="T","Chemesthesis"="C"),
+                                               selected = c("S","T","C")),
                             actionButton("submit1_input",
                                          label = "Submit")
                           ),
