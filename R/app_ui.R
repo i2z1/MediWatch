@@ -10,6 +10,7 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic
     navbarPage("MediWatch",
+               theme = bslib::bs_theme(bootswatch = "cerulean"),
                tabPanel("Monitoring",
                         sidebarLayout(
                           sidebarPanel(
