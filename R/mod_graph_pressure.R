@@ -21,7 +21,7 @@ mod_graph_pressure_ui <- function(id){
 #' graph_pressure Server Functions
 #'
 #' @noRd
-mod_graph_pressure_server <- function(id){
+mod_graph_pressure_server <- function(id,healthdata){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
@@ -32,8 +32,8 @@ mod_graph_pressure_server <- function(id){
       data_inp <- data.frame(Sys = input$bpres_input[2],
                                  Dia = input$bpres_input[1])
       print(data_inp)
-      ggplot2::ggplot(data = data_inp,
-             aes(x = Dia,#Sys,
+      ggplot2::ggplot(data = healthdata,
+             aes(x = Sys,#Sys,
                  y = Dia)#Dia,
                  #colour = Category
              ) +
