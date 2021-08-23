@@ -46,7 +46,10 @@ app_ui <- function(request) {
                             actionButton("submit1_input",
                                          label = "Submit")
                           ),
-                          mainPanel()
+                          mainPanel(
+                            mod_graph_pressure_ui("graph_pressure_ui_1"),
+                            textOutput("test")
+                          )
                         )),
                tabPanel("Blood"),
                tabPanel("About")
