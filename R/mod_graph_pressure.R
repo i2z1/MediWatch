@@ -28,10 +28,8 @@ mod_graph_pressure_server <- function(id,healthdata){
 
 
     output$plot <- renderPlot({
-      #data_inp <- input$bpres_input |> as.data.frame()
-      data_inp <- data.frame(Sys = input$bpres_input[2],
-                                 Dia = input$bpres_input[1])
-      print(data_inp)
+
+
       ggplot2::ggplot(data = healthdata,
              aes(x = Sys,#Sys,
                  y = Dia)#Dia,
@@ -41,8 +39,7 @@ mod_graph_pressure_server <- function(id,healthdata){
         labs(
           x = "Systolic Pressure (mmHg)",
           y = "Diastolic Pressure (mmHg)",
-          colour = "Time of day",
-          title = "Blood pressure (on Coveram 5mg/5mg) - 29 April 2020 to 17 May 2020"
+          title = "Blood pressure"
         ) +
         expand_limits(x = 0, y = 0) +
         expand_limits(x = 250, y = 150) +
