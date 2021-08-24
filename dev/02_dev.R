@@ -19,6 +19,7 @@ usethis::use_package( "bslib" )
 usethis::use_package( "showtext" )
 #usethis::use_package( "thematic" )
 usethis::use_package( "ggplot2" )
+usethis::use_package("dplyr")
 
 
 ## Add modules ----
@@ -30,6 +31,7 @@ golem::add_module( name = "name_of_module2" ) # Name of the module
 ## Creates fct_* and utils_*
 golem::add_fct( "helpers" )
 golem::add_utils( "helpers" )
+golem::add_fct( "get_data" )
 
 ## External resources
 ## Creates .js and .css files at inst/app/www
