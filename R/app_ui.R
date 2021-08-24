@@ -48,7 +48,8 @@ app_ui <- function(request) {
                           ),
                           mainPanel(
                             mod_graph_pressure_ui("graph_pressure_ui_1"),
-                            textOutput("test")
+                            textOutput("test"),
+                            mod_graph_linear_lim_ui("graph_linear_lim_ui_1")
                           )
                         )),
                tabPanel("Blood"),

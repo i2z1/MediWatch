@@ -7,6 +7,7 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
+#' @importFrom ggplot2 ggplot aes geom_area
 mod_graph_linear_lim_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -19,11 +20,17 @@ mod_graph_linear_lim_ui <- function(id){
 #' graph_linear_lim Server Functions
 #'
 #' @noRd
-mod_graph_linear_lim_server <- function(id){
+mod_graph_linear_lim_server <- function(id, g_data, column_param){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
     output$plot <- renderPlot({
+      ggplot2::ggplot(data = g_data,
+                      aes(
+                        x = DateTime,
+                        y = column_param
+                      )) +
+        geom_area()
 
     })
   })
