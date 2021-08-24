@@ -8,6 +8,7 @@
 #'
 #' @importFrom shiny NS tagList
 #' @importFrom ggplot2 ggplot aes geom_area coord_cartesian
+#' @import ggplot2
 mod_graph_linear_lim_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -20,18 +21,27 @@ mod_graph_linear_lim_ui <- function(id){
 #' graph_linear_lim Server Functions
 #'
 #' @noRd
-mod_graph_linear_lim_server <- function(id, g_data, column_param){
+mod_graph_linear_lim_server <- function(id, g_data, column_param, limits_vec, x_label, y_label){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
     output$plot <- renderPlot({
+      spline.d <- as.data.frame(spline(g_data$DateTime, g_data$Temp,
+                                       method = c("fmm")))
+
       ggplot2::ggplot(data = g_data,
                       aes(
                         x = DateTime,
                         y = column_param
                       )) +
-        geom_area() +
-        coord_cartesian(ylim = c(35, 41))
+        geom_line(size = 2) +
+        geom_point(size = 4) +
+        coord_cartesian(ylim = limits_vec) +
+        labs(
+          x = x_label,
+          y = y_label
+        ) +
+          geom_hline(yintercept = 37, color = "red", size = 2)
 
     })
   })
