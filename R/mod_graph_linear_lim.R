@@ -7,7 +7,7 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
-#' @importFrom ggplot2 ggplot aes geom_area
+#' @importFrom ggplot2 ggplot aes geom_area coord_cartesian
 mod_graph_linear_lim_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -30,7 +30,8 @@ mod_graph_linear_lim_server <- function(id, g_data, column_param){
                         x = DateTime,
                         y = column_param
                       )) +
-        geom_area()
+        geom_area() +
+        coord_cartesian(ylim = c(35, 41))
 
     })
   })
