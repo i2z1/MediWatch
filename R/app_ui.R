@@ -2,7 +2,7 @@
 #'
 #' @param request Internal parameter for `{shiny}`.
 #'     DO NOT REMOVE.
-#' @import shiny
+#' @import shiny htmltools
 #' @noRd
 app_ui <- function(request) {
   tagList(
@@ -47,6 +47,7 @@ app_ui <- function(request) {
                                          label = "Submit")
                           ),
                           mainPanel(
+                            h5("Blood pressure"),
                             mod_graph_pressure_ui("graph_pressure_ui_1"),
                             textOutput("test"),
                             mod_graph_linear_lim_ui("graph_linear_lim_ui_1")

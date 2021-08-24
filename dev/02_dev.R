@@ -20,6 +20,7 @@ usethis::use_package( "showtext" )
 #usethis::use_package( "thematic" )
 usethis::use_package( "ggplot2" )
 usethis::use_package("dplyr")
+usethis::use_package("htmltools")
 
 
 ## Add modules ----

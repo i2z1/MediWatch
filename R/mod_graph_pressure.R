@@ -38,8 +38,7 @@ mod_graph_pressure_server <- function(id,healthdata){
         theme_classic() +
         labs(
           x = "Systolic Pressure (mmHg)",
-          y = "Diastolic Pressure (mmHg)",
-          title = "Blood pressure"
+          y = "Diastolic Pressure (mmHg)"
         ) +
         expand_limits(x = 0, y = 0) +
         expand_limits(x = 250, y = 150) +
