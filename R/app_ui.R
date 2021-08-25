@@ -53,7 +53,8 @@ app_ui <- function(request) {
                             mod_graph_linear_lim_ui("graph_linear_lim_ui_1")
                           )
                         )),
-               tabPanel("Blood"),
+               tabPanel("Blood",
+                        mod_blood_analysis_ui("blood_analysis_ui_1")),
                tabPanel("About")
 
     )
