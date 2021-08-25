@@ -1,7 +1,7 @@
 name: Devtools package test
 on: [push]
 jobs:
-  Devtools package test:
+  Devtools_package_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
