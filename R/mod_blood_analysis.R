@@ -15,14 +15,23 @@ mod_blood_analysis_ui <- function(id){
       fluidRow(
         column(4,
                wellPanel(
-                 splitLayout(
-                   h5("Hemoglobin"),
-                   numericInput("inp_Hemoglobin",
-                                label = "",
-                                value = 140)
+                 tags$head(
+                   tags$style(type="text/css", "#inline label{ display: table-cell; text-align: center; vertical-align: middle; }
+                #inline .form-group { display: table-row;}")
+                 ),
+
+                tags$div(id = "inline", numericInput("inp_Hemoglobin",
+                                                     label = "Hemoglobin",
+                                                     value = 140)),
+                tags$div(id = "inline", numericInput("inp_Erythrocytes",
+                                                     label = "Erythrocytes ",
+                                                     value = 140)),
+                tags$div(id = "inline", numericInput("inp_Hematocrit",
+                                                     label = "Hematocrit",
+                                                     value = 140)),
                             )
 
-               ))
+               )
       )
     )
 
