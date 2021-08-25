@@ -3,11 +3,12 @@ on: [push]
 jobs:
   Devtools_package_test:
     runs-on: ubuntu-latest
+#    container: rocker/r-ver:4.1.1
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@v1
       - name: Install debs
-        run: apt-get update && apt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libicu-dev libssl-dev libxml2-dev make pandoc pandoc-citeproc && rm -rf /var/lib/apt/lists/*
+        run: sudo apt-get update && sudo apt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libicu-dev libssl-dev libxml2-dev make pandoc pandoc-citeproc && rm -rf /var/lib/apt/lists/*
       - name: Install rmarkdown
         run: Rscript -e 'install.packages("devtools")'
       - name: Perform test
