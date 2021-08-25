@@ -27,6 +27,7 @@ usethis::use_package("htmltools")
 ## Create a module infrastructure in R/
 golem::add_module( name = "graph_pressure" ) # Name of the module
 golem::add_module( name = "graph_linear_lim" ) # Name of the module
+golem::add_module( name = "blood_analysis" )
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
