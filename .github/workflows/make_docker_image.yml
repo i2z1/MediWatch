@@ -1,4 +1,4 @@
-name: 'Make docker container for R package'
+name: 'Make docker container for R'
 description: 'Make shiny docker container'
 runs:
   using: 'docker'
