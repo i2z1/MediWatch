@@ -1,0 +1,5 @@
+name: 'Make docker container for R package'
+description: 'Make shiny docker container'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
