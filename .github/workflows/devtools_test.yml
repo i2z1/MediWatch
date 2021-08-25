@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@v1
       - name: Install debs
-        run: sudo apt-get update && sudo apt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libicu-dev libssl-dev libxml2-dev make pandoc pandoc-citeproc && rm -rf /var/lib/apt/lists/*
+        run: sudo apt-get update && sudo apt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libicu-dev libssl-dev libxml2-dev make pandoc pandoc-citeproc && sudo rm -rf /var/lib/apt/lists/*
       - name: Install rmarkdown
         run: Rscript -e 'install.packages("devtools")'
       - name: Perform test
