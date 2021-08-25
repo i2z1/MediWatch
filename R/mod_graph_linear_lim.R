@@ -41,7 +41,11 @@ mod_graph_linear_lim_server <- function(id, g_data, column_param, limits_vec, x_
           x = x_label,
           y = y_label
         ) +
-          geom_hline(yintercept = 37, color = "red", size = 2)
+        geom_hline(yintercept = 36, color = "blue", size = 1) +
+        geom_hline(yintercept = 37, color = "orange", size = 1) +
+        geom_hline(yintercept = 38.5, color = "red", size = 1)
+
+
 
     })
   })
