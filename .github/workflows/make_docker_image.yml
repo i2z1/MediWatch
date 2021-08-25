@@ -1,5 +1,7 @@
 name: Docker image build 2
-on: [push]
+on:
+  push:
+    branches: ['master']
 jobs:
   build_docker:
     runs-on: ubuntu-latest
