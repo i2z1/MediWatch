@@ -33,6 +33,7 @@ golem::add_module( name = "graph_linear_lim" ) # Name of the module
 golem::add_fct( "helpers" )
 golem::add_utils( "helpers" )
 golem::add_fct( "get_data" )
+golem::add_fct( "update_data" )
 
 ## External resources
 ## Creates .js and .css files at inst/app/www
