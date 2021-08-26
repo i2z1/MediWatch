@@ -7,8 +7,5 @@
 #' @noRd
 #' @import dplyr
 get_test_data <- function(){
-  tdf <- read.csv2(file = "data/test_exp.csv", sep = ",")
-  #tdf$DateTime <- Sys.time()
-  tdf <- tdf %>% mutate_at(c(2:7),as.numeric)
-  tdf <- tdf %>% mutate_at(c(1), as.POSIXct)
+  tdf
 }
