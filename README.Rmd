@@ -28,7 +28,7 @@ The goal of MediWatch is to present advanced scientific-based analytics of healt
 1. Install [docker](https://docs.docker.com/engine/install/ubuntu/)
 2. Run 
 ```
-docker run -p 8080:80  ghcr.io/i2z1/mediwatch:latest
+docker run -p 8080:80  registry.gitlab.com/mediwatch/mediwatch
 ```
 3. Browse http://127.0.0.1:8080/ at your browser
 
@@ -37,7 +37,7 @@ docker run -p 8080:80  ghcr.io/i2z1/mediwatch:latest
 You can install the released version of MediWatch from [Github](https://github.com/i2z1/MediWatch) with:
 
 ``` r
-devtools::install_github("i2z1/MediWatch")
+devtools::install_gitlab("i2z1/MediWatch")
 options('shiny.port'=8080,shiny.host='127.0.0.1');MediWatch::run_app()
 ```
 
