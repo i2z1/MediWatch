@@ -1,16 +1,33 @@
 image: gitlab/dind
 
-before_script:
-  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+variables:
+  GCR_IMAGE: eu.gcr.io/mediwatch/mediwatch
 
-build_usingcache:
+
+build:
   stage: build
   services:
     - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     - docker pull $CI_REGISTRY_IMAGE:latest || true
     - docker build . --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA --tag $CI_REGISTRY_IMAGE:latest
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
     - docker push $CI_REGISTRY_IMAGE:latest
   only:
+    - master
+
+deploy:
+  stage: deploy
+  before_script:
+    # Login to Gitlab registry
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    # Login to Google Cloud Registry
+    - echo $GCLOUD_REGISTRY_TOKEN| docker login -u _json_key --password-stdin https://eu.gcr.io
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $GCR_IMAGE:latest
+    - docker push $GCR_IMAGE
+    only:
     - master
